@@ -1,15 +1,23 @@
 <div align="center">
-    <h1>SurvivReloadedBot</h1>
-    <h3>A custom bot for the Surviv Reloaded Discord server.</h3>
+    <img src=".github/assets/img/logos/logo_full.png" alt="Surviv Reloaded logo">
+    <hr />
 </div>
-<br />
 
-<!-- <p align="center">
-    <img src="https://img.shields.io/github/v/release/DamienVesper/SurvivReloadedBot?style=for-the-badge&color=f82055&include_prereleases">
-    <img src="https://img.shields.io/github/last-commit/DamienVesper/SurvivReloadedBot?style=for-the-badge&color=f82055">
-    <img src="https://img.shields.io/github/languages/code-size/DamienVesper/SurvivReloadedBot?style=for-the-badge&color=f82055">
-</p>
-<br /> -->
+<div align="center">
+    <img src="https://img.shields.io/badge/node.js%20-%23339933.svg?style=for-the-badge&logo=nodedotjs&logoColor=white" />
+    <img src="https://img.shields.io/badge/typescript-%233178C6?style=for-the-badge&logo=typescript&logoColor=white" />
+    <img src="https://img.shields.io/badge/mongodb-%2347A248?style=for-the-badge&logo=mongodb&logoColor=white" />
+    <img src="https://img.shields.io/badge/discord.js%20-%235865F2.svg?style=for-the-badge" />
+    <img src="https://img.shields.io/badge/ytdl--core%20-%23E82020.svg?style=for-the-badge" />
+    <img src="https://img.shields.io/badge/axios%20-%235A29E4.svg?style=for-the-badge&logo=axios" />
+    <img src="https://img.shields.io/badge/ffmpeg%20-%23007808.svg?style=for-the-badge&logo=ffmpeg" />
+    <img src="https://img.shields.io/badge/youtube--sr%20-%23E82020.svg?style=for-the-badge" />
+</div>
+
+## Prerequisites
+ * [Node.js](https://nodejs.org)
+ * [pnpm](https://pnpm.io)
+ * [MongoDB](https://www.mongodb.com)
 
 ## Installation
 This project utilizes [pnpm](https://pnpm.io). No other package manager is supported for this project.
@@ -24,8 +32,8 @@ This will create a `node_modules` directory in that of your project and link the
 ## Setup
 Testing the application using a database on your own machine will require a localhost database setup:
 
-1. Create a `.env` in the root directory of the repository.
-2. Inside of the `.env` file, include the following:
+1. Copy the contents of `.env.example` to `.env` in the root directory of the repository.
+2. Replace the contents of each key with personalized values.
 ```
 # Discord
 DISCORD_TOKEN="<discord_application_token>"
@@ -38,11 +46,21 @@ MONGODB_URI="<uri>"
 # Development mode?
 NODE_ENV="production"
 ```
-Replace fields accordingly.
 
 ## Development
+To run the bot locally in development, execute
 ```
 pnpm run dev
 ```
 
-Note: You will need MongoDB and Node.js installed to be able to run the program.
+
+## Production
+To build for production, open up a terminal window in the root directory of the project and run
+```sh
+pnpm build
+```
+
+To execute a production build, run
+```
+pnpm start
+```
