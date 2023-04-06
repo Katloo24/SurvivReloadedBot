@@ -13,7 +13,7 @@ dotenv.config();
 
 const config = {
     developerID: `386940319666667521`,
-    prefix: `!`,
+    prefix: `sr!`,
 
     channels,
     colors,
@@ -30,7 +30,7 @@ const config = {
     github: `DamienVesper/SurvivReloadedBot`,
 
     version,
-    footer: `Surviv Reloaded | v${version}`
+    footer: `Surviv Reloaded Bot | v${version}`
 };
 
 export default config;

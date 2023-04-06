@@ -62,16 +62,13 @@ const updateLeaderboards = async (client: Client): Promise<void> => {
         xp: await sortLeaderboard(`xp`, leaderboard)
     });
 
-    // WARNING: O(n^2) moment
     const users = await User.find({ banned: false });
-    for (const user of users) {
-        for (const lbUser of lb.xp) {
-            if (lbUser.discordID === user.discordID) {
-                user.spot = lb.xp.indexOf(lbUser) + 1;
-                await user.save();
-                break;
-            }
-        }
+    for (let i = 0; i < lb.xp.length; i++) {
+        const user = users[lb.xp[i].discordID];
+        if (user === undefined) continue;
+
+        user.spot = i + 1;
+        await user.save();
     }
 
     await lb.save();
