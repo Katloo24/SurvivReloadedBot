@@ -31,7 +31,7 @@ const run = async (client: Client, interaction: ChatInputCommandInteraction): Pr
                 value: `This bot was originally made by DamienVesper & Killaship to save the hassle of explaining exactly what this project is to everyone.`
             },
             {
-                name: `What is SurvivReloaded?`,
+                name: `What is Surviv Reloaded?`,
                 value: `An open source server implementation of surviv.io, utilizing the client from the original game. In other words, it's surviv.io, just hosted on a different server.`
             },
             {
