@@ -1,5 +1,5 @@
 <div align="center">
-    <img src=".github/assets/img/logos/logo_full.png" alt="Surviv Reloaded logo">
+    <img src=".github/assets/img/logos/logo_readme.png" alt="Surviv Reloaded logo">
     <hr />
 </div>
 
