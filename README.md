@@ -11,7 +11,6 @@
     <img src="https://img.shields.io/badge/ytdl--core%20-%23E82020.svg?style=for-the-badge" />
     <img src="https://img.shields.io/badge/axios%20-%235A29E4.svg?style=for-the-badge&logo=axios" />
     <img src="https://img.shields.io/badge/ffmpeg%20-%23007808.svg?style=for-the-badge&logo=ffmpeg" />
-    <img src="https://img.shields.io/badge/youtube--sr%20-%23E82020.svg?style=for-the-badge" />
 </div>
 
 ## Prerequisites
