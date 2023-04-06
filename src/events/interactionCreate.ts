@@ -1,5 +1,3 @@
-import config from '../../config/config';
-
 import { ChannelType, type Interaction } from 'discord.js';
 
 import log from '../utils/log';
