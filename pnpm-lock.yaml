@@ -5,6 +5,7 @@ specifiers:
   '@discordjs/opus': ^0.9.0
   '@discordjs/rest': ^1.7.0
   '@discordjs/voice': ^0.14.0
+  '@napi-rs/canvas': ^0.1.39
   '@types/node': ^18.15.11
   '@typescript-eslint/eslint-plugin': ^5.57.1
   '@typescript-eslint/parser': ^5.57.1
@@ -31,6 +32,7 @@ dependencies:
   '@discordjs/opus': 0.9.0
   '@discordjs/rest': 1.7.0
   '@discordjs/voice': 0.14.0_bfd7ybjr4u3cxk5yt76u2mrpt4
+  '@napi-rs/canvas': 0.1.39
   axios: 0.27.2
   discord-api-types: 0.37.37
   discord.js: 14.9.0
@@ -237,6 +239,102 @@ packages:
       '@jridgewell/resolve-uri': 3.1.0
       '@jridgewell/sourcemap-codec': 1.4.14
     dev: true
+
+  /@napi-rs/canvas-android-arm64/0.1.39:
+    resolution: {integrity: sha512-u08F/XRTv0+M5zz55GgiDW2D+FWigYlMlg34GHhv4Lq8nbdv/SXzFTbJ2b0z2tSIQPVeOzzuVXVCjonUd5Aj6A==}
+    engines: {node: '>= 10'}
+    cpu: [arm64]
+    os: [android]
+    requiresBuild: true
+    dev: false
+    optional: true
+
+  /@napi-rs/canvas-darwin-arm64/0.1.39:
+    resolution: {integrity: sha512-hc0k+onM7ShVl8gS3BGWdtSv8CfUavQ+UZjFp/ZnRdxTQ4DTbhkg2VCm0Qvkf4O7To5Hte7n0tKNBGVGBMiI1A==}
+    engines: {node: '>= 10'}
+    cpu: [arm64]
+    os: [darwin]
+    requiresBuild: true
+    dev: false
+    optional: true
+
+  /@napi-rs/canvas-darwin-x64/0.1.39:
+    resolution: {integrity: sha512-7cKFGTWlMqqpFOMRQp8wcBHmkoflGKUgG+dW24qDS2D2CG1ETLN4V+Q1GTUReKEHaKgwdisjnC2IP74tB82LLQ==}
+    engines: {node: '>= 10'}
+    cpu: [x64]
+    os: [darwin]
+    requiresBuild: true
+    dev: false
+    optional: true
+
+  /@napi-rs/canvas-linux-arm-gnueabihf/0.1.39:
+    resolution: {integrity: sha512-r+J+OFTYEd16oH8OiovoGkmIj+4i+lJ0kX0Up+r4AR8hXRONdo2sVMDJ0zresT4Eu0n413OeiHJUg+6P81aIng==}
+    engines: {node: '>= 10'}
+    cpu: [arm]
+    os: [linux]
+    requiresBuild: true
+    dev: false
+    optional: true
+
+  /@napi-rs/canvas-linux-arm64-gnu/0.1.39:
+    resolution: {integrity: sha512-pFUvqstfODyBygTuenycV7rI/qmcBXjNHicLrb50bVfs+BkqYxg2hNs9zilnWKIktYty69MsH1XVBZZnun3RMg==}
+    engines: {node: '>= 10'}
+    cpu: [arm64]
+    os: [linux]
+    requiresBuild: true
+    dev: false
+    optional: true
+
+  /@napi-rs/canvas-linux-arm64-musl/0.1.39:
+    resolution: {integrity: sha512-5jfbrwI2oWnz5H3xm6qrKtBGyOahds/p9yOs9jUpf8kMx1JwsFLvcgNt6Dfil9HjJSGgW6d+djDVlXPIeQvVSA==}
+    engines: {node: '>= 10'}
+    cpu: [arm64]
+    os: [linux]
+    requiresBuild: true
+    dev: false
+    optional: true
+
+  /@napi-rs/canvas-linux-x64-gnu/0.1.39:
+    resolution: {integrity: sha512-p/EiqSn2iv4SbsSaAZSCe5KRg8sZgjUQvVut6NWOwC3cLiXwHHyBej+ewJJXossZSoWFSdHttHbfdeOBiPVVcA==}
+    engines: {node: '>= 10'}
+    cpu: [x64]
+    os: [linux]
+    requiresBuild: true
+    dev: false
+    optional: true
+
+  /@napi-rs/canvas-linux-x64-musl/0.1.39:
+    resolution: {integrity: sha512-UA3AzY4xIJ7+ioES13cZYk6OjogDoFvdKPEtcWJ3tqWKpzoJRl50+zZH16VijJ8wqFuAWVvpgiIhhEYVgNdHgg==}
+    engines: {node: '>= 10'}
+    cpu: [x64]
+    os: [linux]
+    requiresBuild: true
+    dev: false
+    optional: true
+
+  /@napi-rs/canvas-win32-x64-msvc/0.1.39:
+    resolution: {integrity: sha512-aAI+jrDwuPzkUqs/1f3OLOKnzTEn31xckcF/S6vZcZQVuZnl76JtOJETL/zqbJatm552HxhOaNVwrp0PLTd8KQ==}
+    engines: {node: '>= 10'}
+    cpu: [x64]
+    os: [win32]
+    requiresBuild: true
+    dev: false
+    optional: true
+
+  /@napi-rs/canvas/0.1.39:
+    resolution: {integrity: sha512-Q1pbgfbUNtvY7mXhIJ3tnhBshrS3Ciz272xvlfIOQ8zYtu/6bXb0vyvwcynenGK7QpRFL7iDVGm9npLgdnLDBw==}
+    engines: {node: '>= 10'}
+    optionalDependencies:
+      '@napi-rs/canvas-android-arm64': 0.1.39
+      '@napi-rs/canvas-darwin-arm64': 0.1.39
+      '@napi-rs/canvas-darwin-x64': 0.1.39
+      '@napi-rs/canvas-linux-arm-gnueabihf': 0.1.39
+      '@napi-rs/canvas-linux-arm64-gnu': 0.1.39
+      '@napi-rs/canvas-linux-arm64-musl': 0.1.39
+      '@napi-rs/canvas-linux-x64-gnu': 0.1.39
+      '@napi-rs/canvas-linux-x64-musl': 0.1.39
+      '@napi-rs/canvas-win32-x64-msvc': 0.1.39
+    dev: false
 
   /@nodelib/fs.scandir/2.1.5:
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}

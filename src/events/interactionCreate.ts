@@ -24,12 +24,6 @@ export default async (client: Client, interaction: Interaction): Promise<void> =
             interaction.commandName === `queue` ||
             interaction.commandName === `nowplaying`
         ) {
-            const memberRoles = (await interaction.guild.members.fetch(interaction.user.id))?.roles;
-            if (memberRoles === undefined || (interaction.guild.id === config.guild && !memberRoles.cache.some(r => r.name === `Staff`))) {
-                await interaction.reply({ content: `You are not permitted to run this command.`, ephemeral: true });
-                return;
-            }
-
             if (client.queue === undefined) return;
             if (client.queue.get(interaction.guild.id) === undefined) client.queue.set(interaction.guild.id, new Queue(interaction.guild.id));
         }
