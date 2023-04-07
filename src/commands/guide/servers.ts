@@ -9,8 +9,8 @@ import {
 import { type Client } from '../../typings/discord';
 
 const cmd: SlashCommandBuilder = new SlashCommandBuilder()
-    .setName(`links`)
-    .setDescription(`View important links regarding the project.`);
+    .setName(`servers`)
+    .setDescription(`View servers hosting Surviv Reloaded.`);
 
 const run = async (client: Client, interaction: ChatInputCommandInteraction): Promise<void> => {
     if (interaction.guild === null || interaction.guild.rulesChannel === null) return;
