@@ -23,7 +23,7 @@ const run = async (client: Client, interaction: ChatInputCommandInteraction): Pr
     if (!member.permissions.has(PermissionsBitField.Flags.BanMembers)) {
         await interaction.reply({ content: `You are not permitted to run that command!`, ephemeral: true });
         return;
-    } else if (!targetMember.manageable || targetMember.roles.highest > member.roles.highest) {
+    } else if (!targetMember.bannable) {
         await interaction.reply({ content: `That user is a staff member!`, ephemeral: true });
         return;
     }
