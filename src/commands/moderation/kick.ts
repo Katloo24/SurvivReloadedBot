@@ -7,10 +7,10 @@ import type { Client } from '../../typings/discord';
 import { discord } from '../../utils/standardize';
 
 const cmd: SlashCommandBuilder = new SlashCommandBuilder()
-    .setName(`ban`)
-    .addUserOption(option => option.setName(`user`).setDescription(`The user to ban.`).setRequired(true))
-    .addStringOption(option => option.setName(`reason`).setDescription(`The reason you are banning the user.`))
-    .setDescription(`Ban a user.`);
+    .setName(`kick`)
+    .addUserOption(option => option.setName(`user`).setDescription(`The user to kick.`).setRequired(true))
+    .addStringOption(option => option.setName(`reason`).setDescription(`The reason you are kicking the user.`))
+    .setDescription(`Kick a user.`);
 
 const run = async (client: Client, interaction: ChatInputCommandInteraction): Promise<void> => {
     if (interaction.guild === null) return;
@@ -20,7 +20,7 @@ const run = async (client: Client, interaction: ChatInputCommandInteraction): Pr
 
     const reason = interaction.options.getString(`reason`) ?? `No reason provided`;
 
-    if (!member.permissions.has(PermissionsBitField.Flags.BanMembers)) {
+    if (!member.permissions.has(PermissionsBitField.Flags.KickMembers)) {
         await interaction.reply({ content: `You are not permitted to run that command!`, ephemeral: true });
         return;
     } else if (!targetMember.manageable || targetMember.roles.highest > member.roles.highest) {
@@ -35,18 +35,18 @@ const run = async (client: Client, interaction: ChatInputCommandInteraction): Pr
 
     const sEmbed = new EmbedBuilder()
         .setAuthor({ name: interaction.user.tag, iconURL: interaction.user.avatarURL() ?? interaction.user.defaultAvatarURL })
-        .setDescription(`**Banned** <@${targetMember.id}> ||(${discord(targetMember.user.tag)})|| from the server.**\n\n**ID**\`\`\`${targetMember.id}\`\`\`\n**Reason**\`\`\`${discord(reason)}\`\`\``)
+        .setDescription(`**Kicked** <@${targetMember.id}> ||(${discord(targetMember.user.tag)})|| from the server.**\n\n**ID**\`\`\`${targetMember.id}\`\`\`\n**Reason**\`\`\`${discord(reason)}\`\`\``)
         .setTimestamp()
         .setFooter({ text: config.footer });
 
     const xEmbed = new EmbedBuilder()
         .setAuthor({ name: targetMember.user.tag, iconURL: targetMember.user.avatarURL() ?? targetMember.user.defaultAvatarURL })
-        .setDescription(`**<@${targetMember.id}> was banned from the server.**\n\n**Responsible Moderator**\n<@${interaction.user.id}>\n\n**ID**\`\`\`${targetMember.id}\`\`\`\n**Reason**\`\`\`${discord(reason)}\`\`\``)
+        .setDescription(`**<@${targetMember.id}> was kicked from the server.**\n\n**Responsible Moderator**\n<@${interaction.user.id}>\n\n**ID**\`\`\`${targetMember.id}\`\`\`\n**Reason**\`\`\`${discord(reason)}\`\`\``)
         .setThumbnail(targetMember.user.avatarURL() ?? targetMember.user.defaultAvatarURL)
         .setTimestamp()
         .setFooter({ text: config.footer });
 
-    await targetMember.ban({ reason, deleteMessageSeconds: 86400 });
+    await targetMember.kick(reason);
 
     await interaction.followUp({ embeds: [sEmbed] });
     await logChannel.send({ embeds: [xEmbed] });

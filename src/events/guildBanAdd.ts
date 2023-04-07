@@ -17,7 +17,7 @@ export default async (client: Client, ban: GuildBan): Promise<void> => {
 
     const sEmbed = new EmbedBuilder()
         .setAuthor({ name: ban.user.tag, iconURL: ban.user.avatarURL() ?? ban.user.defaultAvatarURL })
-        .setDescription(`**<@${ban.user.id}> banned from the server.**\n\n**Responsible Moderator**\n<@${banLog.executor.id}>\n\`\`\`${banLog.executor.id}\`\`\`\n\n**ID**\`\`\`${ban.user.id}\`\`\`\n**Reason**\`\`\`${discord(ban.reason ?? `No reason provided`)}\`\`\``)
+        .setDescription(`**<@${ban.user.id}> was banned from the server.**\n\n**Responsible Moderator**\n<@${banLog.executor.id}>\n\`\`\`${banLog.executor.id}\`\`\`\n\n**ID**\`\`\`${ban.user.id}\`\`\`\n**Reason**\`\`\`${discord(ban.reason ?? `No reason provided`)}\`\`\``)
         .setThumbnail(ban.user.avatarURL() ?? ban.user.defaultAvatarURL)
         .setTimestamp()
         .setFooter({ text: config.footer });
