@@ -19,7 +19,7 @@ const run = async (client: Client, interaction: ChatInputCommandInteraction): Pr
     if (interaction.guild === null || interaction.guild.rulesChannel === null) return;
 
     const sEmbed = new EmbedBuilder()
-        .setColor(config.colors.blue)
+        .setColor(config.colors.orange)
         .setAuthor({ name: `Help`, iconURL: interaction.guild?.iconURL() ?? undefined })
         .addFields([
             {

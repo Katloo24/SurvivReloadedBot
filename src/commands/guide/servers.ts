@@ -17,8 +17,22 @@ const run = async (client: Client, interaction: ChatInputCommandInteraction): Pr
 
     const sEmbed = new EmbedBuilder()
         .setColor(config.colors.orange)
-        .setAuthor({ name: `Useful Links`, iconURL: interaction.guild?.iconURL() ?? undefined })
-        .setDescription(`[Resurviv.io - Stable](https://resurviv.io)\n[Resurviv.io - Beta](https://test.resurviv.io)\n[Discord](https://discord.resurviv.io)\n[Subreddit](https://reddit.com/r/survivreloaded)\n[GitHub](https://github.com/SurvivReloaded)\n[Bot GitHub](https://github.com/DamienVesper/SurvivReloadedBot)`)
+        .setAuthor({ name: `Resurviv.io Servers`, iconURL: interaction.guild?.iconURL() ?? undefined })
+        .setDescription(`A list of servers for Surviv Reloaded. If you are looking for the beta server, click [here](https://test.resurviv.io).`)
+        .addFields([
+            {
+                name: `North America`,
+                value: `[resurviv.io](https://resurviv.io)`
+            },
+            {
+                name: `Europe`,
+                value: `[eu.resurviv.io](https://eu.resurviv.io)`
+            },
+            {
+                name: `Asia`,
+                value: `[as.resurviv.io](https://as.resurviv.io)`
+            }
+        ])
         .setTimestamp()
         .setFooter({ text: config.footer });
 

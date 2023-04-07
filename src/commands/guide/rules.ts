@@ -19,7 +19,7 @@ const run = async (client: Client, interaction: ChatInputCommandInteraction): Pr
     if (interaction.guild === null || interaction.guild.rulesChannel === null) return;
 
     const sEmbed = new EmbedBuilder()
-        .setColor(config.colors.blue)
+        .setColor(config.colors.orange)
         .setAuthor({ name: `Server Rules`, iconURL: interaction.guild?.iconURL() ?? undefined })
         .setImage(`https://i.kym-cdn.com/entries/icons/original/000/033/153/therules.jpg`)
         .setDescription(`View our rules.`)

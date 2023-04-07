@@ -42,7 +42,7 @@ const run = async (client: Client, interaction: ChatInputCommandInteraction): Pr
          * @todo Change UA so that axios isn't detected.
          */
         axios.get(url).then(res => {
-            sEmbed.setColor(config.colors.blue);
+            sEmbed.setColor(config.colors.teal);
             sEmbed.addFields([{ name: `Response`, value: config.httpCodes[res.status] !== undefined ? `${res.status} - ${config.httpCodes[res.status]}` : `The bot could not understand the response sent by the server.` }]);
         }).catch((err: AxiosError) => {
             const status = err.response?.status;
