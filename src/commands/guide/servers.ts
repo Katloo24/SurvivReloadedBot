@@ -18,7 +18,7 @@ const run = async (client: Client, interaction: ChatInputCommandInteraction): Pr
     const sEmbed = new EmbedBuilder()
         .setColor(config.colors.orange)
         .setAuthor({ name: `Resurviv.io Servers`, iconURL: interaction.guild?.iconURL() ?? undefined })
-        .setDescription(`A list of servers for Surviv Reloaded. If you are looking for the beta server, click [here](https://test.resurviv.io).`)
+        .setDescription(`Servers hosting Surviv Reloaded. If you are looking for the beta server, click [here](https://test.resurviv.io).`)
         .addFields([
             {
                 name: `North America`,
