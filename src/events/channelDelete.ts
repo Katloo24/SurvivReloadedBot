@@ -24,6 +24,8 @@ export default async (client: Client, channel: DMChannel | GuildChannel): Promis
         .setTimestamp()
         .setFooter({ text: config.footer });
 
-    const logChannel = await client.channels.fetch(config.logChannel) as TextChannel;
+    const logChannel = await client.channels.fetch(config.channels.logs) as TextChannel | null;
+    if (logChannel === null) return;
+
     await logChannel?.send({ embeds: [sEmbed] });
 };
