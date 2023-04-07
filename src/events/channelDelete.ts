@@ -1,13 +1,15 @@
 import config from '../../config/config';
 
 import { EmbedBuilder } from '@discordjs/builders';
-import { AuditLogEvent, type GuildChannel, type TextChannel } from 'discord.js';
+import { AuditLogEvent, ChannelType, type DMChannel, type GuildChannel, type TextChannel } from 'discord.js';
 
 import { discord } from '../utils/standardize';
 
 import type { Client } from '../typings/discord';
 
-export default async (client: Client, channel: GuildChannel): Promise<void> => {
+export default async (client: Client, channel: DMChannel | GuildChannel): Promise<void> => {
+    if (channel.type === ChannelType.DM) return;
+
     const channelLog = (await channel.guild.fetchAuditLogs({
         type: AuditLogEvent.ChannelDelete,
         limit: 1
