@@ -40,7 +40,7 @@ const run = async (client: Client, interaction: ChatInputCommandInteraction): Pr
         .setFooter({ text: config.footer });
 
     const xEmbed = new EmbedBuilder()
-        .setAuthor({ name: interaction.user.tag, iconURL: interaction.guild.iconURL() ?? undefined })
+        .setAuthor({ name: interaction.user.tag, iconURL: interaction.user.avatarURL() ?? interaction.user.defaultAvatarURL })
         .setDescription(`**Purged ${messageCount} messages in <#${interaction.channel.id}>.**\n\n**Reason**\`\`\`${reason}\`\`\``)
         .setFooter({ text: config.footer });
 

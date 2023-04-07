@@ -18,7 +18,6 @@ export default async (client: Client, channel: GuildChannel): Promise<void> => {
     const sEmbed = new EmbedBuilder()
         .setAuthor({ name: channelLog.executor.tag, iconURL: channelLog.executor.avatarURL() ?? channelLog.executor.defaultAvatarURL })
         .setDescription(`**Channel Created**\n\`${channel.name}\`\n\n**Responsible Moderator**\n<@${channelLog.executor.id}>${channelLog.reason !== null ? `\n\n**Reason**\`\`\`${discord(channelLog.reason)}\`\`\`` : ``}`)
-        .setThumbnail(channelLog.executor.avatarURL() ?? channelLog.executor.defaultAvatarURL)
         .setTimestamp()
         .setFooter({ text: config.footer });
 
