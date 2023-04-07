@@ -21,8 +21,8 @@ const deployCommands = async (client: Client): Promise<void> => {
         commands.push(((command.cmd.toJSON() as unknown) as Record<string, unknown>));
     }
 
-    await rest.put(Routes.applicationCommands(process.env.DISCORD_ID), { body: commands })
-    // await rest.put(Routes.applicationGuildCommands(process.env.DISCORD_ID, process.env.GUILD_ID), { body: commands })
+    // await rest.put(Routes.applicationCommands(process.env.DISCORD_ID), { body: commands })
+    await rest.put(Routes.applicationGuildCommands(process.env.DISCORD_ID, process.env.GUILD_ID), { body: commands })
         .then(() => {
             log(`green`, `Successfully registered application commands.`);
         }).catch(err => { log(`red`, err); });
