@@ -17,11 +17,14 @@ const client: DCClient = new Client({
         GatewayIntentBits.Guilds,
         GatewayIntentBits.GuildMembers,
         GatewayIntentBits.GuildMessages,
+        GatewayIntentBits.GuildMessageReactions,
         GatewayIntentBits.GuildVoiceStates,
         GatewayIntentBits.MessageContent
     ],
     partials: [
-        Partials.Channel
+        Partials.Channel,
+        Partials.Message,
+        Partials.Reaction
     ]
 });
 
