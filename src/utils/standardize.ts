@@ -22,7 +22,7 @@ const num = (num: number): string =>
                         : Math.abs(Number(num)) >= 1e6
                             ? `${(Math.abs(Number(num)) / 1e6).toFixed(2)}M`
                             : Math.abs(Number(num)) >= 1e3
-                                ? `${(Math.round(Math.abs(Number(num)) / 1e3))}K`
+                                ? `${(Math.abs(Number(num)) / 1e3).toFixed(2)}K`
                                 : Math.abs(Number(num)).toString();
 
 /**
