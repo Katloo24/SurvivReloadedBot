@@ -29,7 +29,7 @@ export default async (client: Client, message: Message): Promise<void> => {
             const sEmbed = new EmbedBuilder()
                 .setColor(config.colors.blue)
                 .setAuthor({ name: `Level Up`, iconURL: message.author.avatarURL() ?? message.author.defaultAvatarURL })
-                .setDescription(`**${discord(message.author.tag)}** just leveled up to **Level ${dbUser.level}**!`)
+                .setDescription(`**${discord(message.author.tag)}** just reached **Level ${dbUser.level}**!`)
                 .setFooter({ text: config.footer });
 
             await dbUser.save();
