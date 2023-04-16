@@ -41,8 +41,8 @@ dependencies:
     specifier: ^4.3.4
     version: 4.3.4
   ytdl-core:
-    specifier: github:khlevon/node-ytdl-core#v4.11.3-patch.1
-    version: github.com/khlevon/node-ytdl-core/586971bd9aeda1cbb4600851cfef82a809833ac2
+    specifier: ^4.11.4
+    version: 4.11.4
 
 devDependencies:
   '@types/node':
@@ -2668,10 +2668,8 @@ packages:
     resolution: {integrity: sha512-olSYcR80XigutCrePEXBX3/RJJrWfonJQj7+/ggBiWU0CzTDLE1q8+lpWTWCG0JpzhzILp/IB/Bq/glGqqr1TQ==}
     dev: false
 
-  github.com/khlevon/node-ytdl-core/586971bd9aeda1cbb4600851cfef82a809833ac2:
-    resolution: {tarball: https://codeload.github.com/khlevon/node-ytdl-core/tar.gz/586971bd9aeda1cbb4600851cfef82a809833ac2}
-    name: ytdl-core
-    version: 0.0.0-development
+  /ytdl-core@4.11.4:
+    resolution: {integrity: sha512-tsVvqt++B5LSTMnCKQb4H/PFBewKj7gGPJ6KIM5gOFGMKNZj4qglGAl4QGFG8cNPP6wY54P80FDID5eN2di0GQ==}
     engines: {node: '>=12'}
     dependencies:
       m3u8stream: 0.8.6

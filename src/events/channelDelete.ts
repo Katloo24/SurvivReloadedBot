@@ -15,7 +15,7 @@ export default async (client: Client, channel: DMChannel | GuildChannel): Promis
         limit: 1
     }))?.entries.first();
 
-    if (channelLog === undefined || channelLog.executor === null) return;
+    if (channelLog === undefined || channelLog.executor === null || (new Date().valueOf() - channelLog.createdAt.valueOf()) > 5e3) return;
 
     const sEmbed = new EmbedBuilder()
         .setAuthor({ name: channelLog.executor.tag, iconURL: channelLog.executor.avatarURL() ?? channelLog.executor.defaultAvatarURL })
