@@ -13,7 +13,7 @@ export default async (client: Client, member: GuildMember): Promise<void> => {
         limit: 1
     }))?.entries.first();
 
-    if (kickLog === undefined || kickLog.executor === null || kickLog.executor.id === client.user?.id || (new Date().valueOf() - kickLog.createdAt.valueOf()) > 1e3) return;
+    if (kickLog === undefined || kickLog.executor === null || kickLog.targetId !== member.id || kickLog.executor.id === client.user?.id || (new Date().valueOf() - kickLog.createdAt.valueOf()) > 1e3) return;
 
     const sEmbed = new EmbedBuilder()
         .setAuthor({ name: member.user.tag, iconURL: member.user.avatarURL() ?? member.user.defaultAvatarURL })
