@@ -13,7 +13,7 @@ export default async (client: Client, ban: GuildBan): Promise<void> => {
         limit: 1
     }))?.entries.first();
 
-    if (banLog === undefined || banLog.executor === null || banLog.executor.id === client.user?.id || (new Date().valueOf() - banLog.createdAt.valueOf()) > 5e3) return;
+    if (banLog === undefined || banLog.executor === null || banLog.targetId !== ban.user.id || banLog.executor.id === client.user?.id || (new Date().valueOf() - banLog.createdAt.valueOf()) > 5e3) return;
 
     const sEmbed = new EmbedBuilder()
         .setAuthor({ name: ban.user.tag, iconURL: ban.user.avatarURL() ?? ban.user.defaultAvatarURL })
