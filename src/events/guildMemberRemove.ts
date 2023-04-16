@@ -13,17 +13,34 @@ export default async (client: Client, member: GuildMember): Promise<void> => {
         limit: 1
     }))?.entries.first();
 
-    if (kickLog === undefined || kickLog.executor === null || kickLog.targetId !== member.id || kickLog.executor.id === client.user?.id || (new Date().valueOf() - kickLog.createdAt.valueOf()) > 1e3) return;
+    const banLog = (await member.guild.fetchAuditLogs({
+        type: AuditLogEvent.MemberBanAdd,
+        limit: 1
+    }))?.entries.first();
 
-    const sEmbed = new EmbedBuilder()
-        .setAuthor({ name: member.user.tag, iconURL: member.user.avatarURL() ?? member.user.defaultAvatarURL })
-        .setDescription(`**<@${member.user.id}> was kicked from the server.**\n\n**Responsible Moderator**\n<@${kickLog.executor.id}>\n\`\`\`${kickLog.executor.id}\`\`\`\n\n**ID**\`\`\`${member.user.id}\`\`\`\n**Reason**\`\`\`${discord(kickLog.reason ?? `No reason provided`)}\`\`\``)
-        .setThumbnail(member.user.avatarURL() ?? member.user.defaultAvatarURL)
-        .setTimestamp()
-        .setFooter({ text: config.footer });
+    if (!(kickLog === undefined || kickLog.executor === null || kickLog.targetId !== member.id || kickLog.executor.id === client.user?.id || (new Date().valueOf() - kickLog.createdAt.valueOf()) > 1e3)) {
+        const sEmbed = new EmbedBuilder()
+            .setAuthor({ name: member.user.tag, iconURL: member.user.avatarURL() ?? member.user.defaultAvatarURL })
+            .setDescription(`**<@${member.user.id}> was kicked from the server.**\n\n**Responsible Moderator**\n<@${kickLog.executor.id}>\n\`\`\`${kickLog.executor.id}\`\`\`\n\n**ID**\`\`\`${member.user.id}\`\`\`\n**Reason**\`\`\`${discord(kickLog.reason ?? `No reason provided`)}\`\`\``)
+            .setThumbnail(member.user.avatarURL() ?? member.user.defaultAvatarURL)
+            .setTimestamp()
+            .setFooter({ text: config.footer });
 
-    const logChannel = await client.channels.fetch(config.channels.logs) as TextChannel | null;
-    if (logChannel === null) return;
+        const logChannel = await client.channels.fetch(config.channels.logs) as TextChannel | null;
+        if (logChannel === null) return;
 
-    await logChannel?.send({ embeds: [sEmbed] });
+        await logChannel?.send({ embeds: [sEmbed] });
+    } else if (!(banLog === undefined || banLog.executor === null || banLog.targetId !== member.user.id || banLog.executor.id === client.user?.id || (new Date().valueOf() - banLog.createdAt.valueOf()) > 5e3)) {
+        const sEmbed = new EmbedBuilder()
+            .setAuthor({ name: member.user.tag, iconURL: member.user.avatarURL() ?? member.user.defaultAvatarURL })
+            .setDescription(`**<@${member.user.id}> was banned from the server.**\n\n**Responsible Moderator**\n<@${banLog.executor.id}>\n\`\`\`${banLog.executor.id}\`\`\`\n\n**ID**\`\`\`${member.user.id}\`\`\`\n**Reason**\`\`\`${discord(banLog.reason ?? `No reason provided`)}\`\`\``)
+            .setThumbnail(member.user.avatarURL() ?? member.user.defaultAvatarURL)
+            .setTimestamp()
+            .setFooter({ text: config.footer });
+
+        const logChannel = await client.channels.fetch(config.channels.logs) as TextChannel | null;
+        if (logChannel === null) return;
+
+        await logChannel?.send({ embeds: [sEmbed] });
+    }
 };
