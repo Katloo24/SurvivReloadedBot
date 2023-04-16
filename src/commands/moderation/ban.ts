@@ -35,7 +35,7 @@ const run = async (client: Client, interaction: ChatInputCommandInteraction): Pr
 
     const sEmbed = new EmbedBuilder()
         .setAuthor({ name: interaction.user.tag, iconURL: interaction.user.avatarURL() ?? interaction.user.defaultAvatarURL })
-        .setDescription(`**Banned** <@${targetMember.id}> ||(${discord(targetMember.user.tag)})|| from the server.**\n\n**ID**\`\`\`${targetMember.id}\`\`\`\n**Reason**\`\`\`${discord(reason)}\`\`\``)
+        .setDescription(`**Banned** <@${targetMember.id}> ||(${discord(targetMember.user.tag)})|| **from the server.**\n\n**ID**\`\`\`${targetMember.id}\`\`\`\n**Reason**\`\`\`${discord(reason)}\`\`\``)
         .setTimestamp()
         .setFooter({ text: config.footer });
 
