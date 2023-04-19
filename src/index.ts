@@ -14,8 +14,6 @@ dotenv();
 
 const client: DCClient = new Client({
     intents: [
-        GatewayIntentBits.AutoModerationConfiguration,
-        GatewayIntentBits.AutoModerationExecution,
         GatewayIntentBits.Guilds,
         GatewayIntentBits.GuildInvites,
         GatewayIntentBits.GuildMembers,
@@ -30,10 +28,14 @@ const client: DCClient = new Client({
         Partials.GuildMember,
         Partials.Message,
         Partials.Reaction,
-        Partials.ThreadMember,
         Partials.User
     ]
 });
+
+/**
+ * Prevents crash on error.
+ */
+process.on(`uncaughtException`, err => log(`red`, err.stack ?? err.message));
 
 /**
  * Start up the bot.
