@@ -6,7 +6,9 @@ import { ChannelType, type Message, type TextChannel } from 'discord.js';
 import { type Client } from '../typings/discord';
 
 export default async (client: Client, message: Message, newMessage: Message): Promise<void> => {
-    if (message.author === null || message.author.bot || message.guild === null || message.channel?.type !== ChannelType.GuildText) return;
+    if (message.partial) message = await message.fetch(true);
+
+    if (message.author.bot || message.guild === null || message.channel?.type !== ChannelType.GuildText) return;
     if (message.content === newMessage.content) return;
 
     const sEmbed = new EmbedBuilder()

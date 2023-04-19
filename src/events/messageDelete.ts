@@ -6,6 +6,8 @@ import { ChannelType, type Message, type TextChannel } from 'discord.js';
 import { type Client } from '../typings/discord';
 
 export default async (client: Client, message: Message): Promise<void> => {
+    if (message.partial) message = await message.fetch(true);
+
     if (message.author.bot || message.guild === null || message.channel?.type !== ChannelType.GuildText) return;
     if (message.channel.id === config.channels.admin) return;
 

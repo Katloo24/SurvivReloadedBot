@@ -25,10 +25,8 @@ const client: DCClient = new Client({
     ],
     partials: [
         Partials.Channel,
-        Partials.GuildMember,
         Partials.Message,
-        Partials.Reaction,
-        Partials.User
+        Partials.Reaction
     ]
 });
 

@@ -10,6 +10,8 @@ import { type Client } from '../typings/discord';
 import { discord } from '../utils/standardize';
 
 export default async (client: Client, message: Message): Promise<void> => {
+    if (message.partial) message = await message.fetch(true);
+
     if (message.author.bot || message.guild === null || message.channel?.type !== ChannelType.GuildText) return;
 
     if (message.channel.id !== config.channels.welcome) {
