@@ -63,8 +63,12 @@ const updateLeaderboards = async (client: Client): Promise<void> => {
     });
 
     const users = await User.find({ banned: false });
+    if (users === null) return;
+
+    const userIDs = users.map(x => x.discordID);
+
     for (let i = 0; i < lb.xp.length; i++) {
-        const user = users[lb.xp[i].discordID];
+        const user = users[userIDs.indexOf(lb.xp[i].discordID)];
         if (user === undefined) continue;
 
         user.spot = i + 1;
