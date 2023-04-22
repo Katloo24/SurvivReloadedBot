@@ -15,6 +15,8 @@ const cmd: Omit<SlashCommandBuilder, `addSubcommand` | `addSubcommandGroup`> = n
     .setDescription(`View a user's profile.`);
 
 const run = async (client: Client, interaction: ChatInputCommandInteraction): Promise<void> => {
+    await interaction.deferReply();
+
     const user = interaction.options.getUser(`user`) ?? interaction.user;
     const dbUser = await findUser(client, user);
 
@@ -26,7 +28,7 @@ const run = async (client: Client, interaction: ChatInputCommandInteraction): Pr
         .setTimestamp()
         .setFooter({ text: config.footer });
 
-    await interaction.reply({ embeds: [sEmbed] });
+    await interaction.followUp({ embeds: [sEmbed] });
 };
 
 export {

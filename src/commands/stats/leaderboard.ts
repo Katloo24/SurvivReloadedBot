@@ -15,6 +15,8 @@ const cmd: SlashCommandBuilder = new SlashCommandBuilder()
     .setDescription(`View the global leaderboard.`);
 
 const run = async (client: Client, interaction: ChatInputCommandInteraction): Promise<void> => {
+    await interaction.deferReply();
+
     const lb = await Leaderboard.findOne({});
     if (lb === null) {
         await interaction.reply({ content: `There was an error running that command. Please notify a developer.`, ephemeral: true });
@@ -38,7 +40,7 @@ const run = async (client: Client, interaction: ChatInputCommandInteraction): Pr
         .setTimestamp()
         .setFooter({ text: config.footer });
 
-    await interaction.reply({ embeds: [sEmbed] });
+    await interaction.followUp({ embeds: [sEmbed] });
 };
 
 export {
