@@ -19,7 +19,7 @@ const run = async (client: Client, interaction: ChatInputCommandInteraction): Pr
 
     const lb = await Leaderboard.findOne({});
     if (lb === null) {
-        await interaction.reply({ content: `There was an error running that command. Please notify a developer.`, ephemeral: true });
+        await interaction.followUp({ content: `There was an error running that command. Please notify a developer.`, ephemeral: true });
         return;
     }
 
