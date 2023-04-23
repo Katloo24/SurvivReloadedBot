@@ -50,7 +50,7 @@ const run = async (client: Client, interaction: ChatInputCommandInteraction): Pr
             sEmbed.setColor(config.colors.red);
             sEmbed.addFields([{ name: `Response`, value: status !== undefined && config.httpCodes[status] !== undefined ? `${status} - ${config.httpCodes[status]}` : `The bot's attempt to establish a connection to the server timed out.` }]);
         }).finally(() => {
-            sEmbed.setDescription(`[${discord(url)}](url)`);
+            sEmbed.setDescription(`[${discord(url)}](${url})`);
             void interaction.followUp({
                 embeds: [sEmbed],
                 components: [sRow]
