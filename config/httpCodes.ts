@@ -1,3 +1,7 @@
+/**
+ * Common HTTP response codes.
+ * @author Killaship
+ */
 const httpCodes: Record<number, string> = {
     100: `Continue`,
     101: `Switching Protocols`,
@@ -70,7 +74,6 @@ const httpCodes: Record<number, string> = {
     /**
      * NON-STANDARD CODES
      */
-
     419: `CSRF Token Missing or Expired`,
     420: `Enhance Your Calm`,
     440: `Login Time-out`,
