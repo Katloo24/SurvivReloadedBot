@@ -18,7 +18,7 @@ const run = async (client: Client, interaction: ChatInputCommandInteraction): Pr
     const sEmbed = new EmbedBuilder()
         .setColor(config.colors.orange)
         .setAuthor({ name: `Suroi.io Servers`, iconURL: interaction.guild?.iconURL() ?? undefined })
-        .setDescription(`A list of servers hosting Surviv Reloaded.\nDon't see your region? Other than the North America server, they are volunteer hosted. Interested in hosting a server? Contact Hasanger for details.')
+        .setDescription(`A list of servers hosting Suroi.\nDon't see your region? Other than the North America server, they are volunteer hosted. Interested in hosting a server? Contact Hasanger for details.')
         .addFields([
             {
                 name: `North America`,
